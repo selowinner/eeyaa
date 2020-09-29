@@ -1,0 +1,65 @@
+$angle: 9;
+$translate: 20;
+
+nz-layout {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 100%;
+  align-items: center;
+  text-align: center;
+  min-height: 100%;
+  transform: skew(0deg, -#{$angle}deg) translateY(-44%);
+  background: linear-gradient(90deg, #2f63b1ab 39%, #1890ffdb 94%);
+
+  .content-form {
+    box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    color: white;
+    width: 35%;
+    padding: 5rem;
+    background: white;
+    position: relative;
+    transform: skew(0deg, #{$angle}deg) translateY(36%);
+    top: 10rem;
+
+    [nz-form] {
+      max-width: 100%;
+    }
+
+
+    nz-space {
+      width: 100%;
+
+      nz-space-item {
+        .title-form {
+          color: #1890ff;
+          font-size: 30px;
+          display: flex;
+          justify-content: flex-start;
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+
+  }
+}
+
+.login-form {
+  max-width: 300px;
+}
+
+.login-form-margin {
+  margin-bottom: 16px;
+}
+
+.login-form-forgot {
+  //float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}
+
