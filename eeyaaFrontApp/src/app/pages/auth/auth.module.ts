@@ -6,7 +6,16 @@ import {RegisterComponent} from './register/register.component';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthRootingModule} from './auth-rooting.module';
-import {NgZorroAntdModule, NzButtonModule, NzFormModule, NzGridModule, NzIconModule, NzInputModule, NzLayoutModule} from 'ng-zorro-antd';
+import {
+  NgZorroAntdModule,
+  NzButtonModule,
+  NzCarouselModule,
+  NzFormModule,
+  NzGridModule,
+  NzIconModule,
+  NzInputModule,
+  NzLayoutModule
+} from 'ng-zorro-antd';
 import {NzSpaceModule} from 'ng-zorro-antd/space';
 
 
@@ -25,7 +34,8 @@ import {NzSpaceModule} from 'ng-zorro-antd/space';
     NzFormModule,
     NgZorroAntdModule,
     NzIconModule,
-    NzSpaceModule
+    NzSpaceModule,
+    NzCarouselModule
   ]
 })
 export class AuthModule {

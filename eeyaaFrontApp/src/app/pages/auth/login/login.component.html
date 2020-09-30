@@ -1,53 +1,33 @@
 <nz-layout>
+  <!--top-->
+  <div class="container-fluid e-container-card">
+    <div class="e-content">
+      <img src="../../../../assets/images/logo.png" class="e-logo">
+    </div>
+  </div>
+  <!--middle-->
+  <div class="container-fluid display-flex justify-content-space-between">
+    <!--left-->
+    <div class="e-container-card e-container-btn">
+      <div class="e-content">
+        <span class="e-btn-login">Inscription</span>
+      </div>
+    </div>
+    <!--middle-->
+    <nz-carousel [nzEffect]="'fade'" [nzAutoPlay]=true>
+      <div nz-carousel-content *ngFor="let item of dataSlide">
+        <h1 class="e-title">{{item.text}}</h1>
+        <p class="e-description">{{item.description}}</p>
+      </div>
+    </nz-carousel>
 
-  <div class="content-form">
-    <nz-space nzDirection="vertical">
-      <nz-space-item>
-        <div class="title-form">Connexion</div>
-      </nz-space-item>
-      <nz-space-item>
-        <form (ngSubmit)="submitForm(validateForm.value)" [formGroup]="validateForm" class="login-form" nz-form>
-          <nz-form-item>
-            <nz-form-control nzErrorTip="Please input your username!">
-              <nz-input-group>
-                <input type="text" nz-input formControlName="username" placeholder="Username" />
-              </nz-input-group>
-            </nz-form-control>
-          </nz-form-item>
-          <nz-form-item>
-            <nz-form-control nzErrorTip="Please input your Password!">
-              <nz-input-group>
-                <input type="password" nz-input formControlName="password" placeholder="Password" />
-              </nz-input-group>
-            </nz-form-control>
-          </nz-form-item>
-          <div nz-row class="login-form-margin">
-            <div nz-col nzFlex="1">
-              <label nz-checkbox>
-                <span>Remember me</span>
-              </label>
-            </div>
-            <div nz-col nzFlex="1">
-              <a class="login-form-forgot">Forgot password</a>
-            </div>
-          </div>
-          <div nz-col nzFlex="1">
-            <button nz-button
-                    nz-col
-                    style="width: 50%;"
-                    class="login-form-button login-form-margin"
-                    [disabled]="validateForm.invalid"
-                    nzShape="round"
-                    [nzLoading]="loading"
-                    [nzType]="'primary'">Se connecter
-            </button>
-          </div>
-          Or <a [routerLink]="redirectRegister" > register now! </a>
+    <!--right-->
+    <div class="e-container-card e-container-btn">
+      <div class="e-content">
+        <span class="e-btn-register">Connexion</span>
+      </div>
+    </div>
 
-
-        </form>
-      </nz-space-item>
-    </nz-space>
   </div>
 
 </nz-layout>
