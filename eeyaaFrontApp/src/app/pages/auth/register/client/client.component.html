@@ -30,37 +30,48 @@
             (ngSubmit)="submitForm(validateForm.value)">
         <div class="flex-column align-items-center justify-content-space-between widht-100">
           <div class="e-container-radio-group margin-bottom-1">
-            <nz-radio-group nzName="radiogroup">
+            <nz-radio-group nzName="radiogroup" formControlName="radioValue" [(ngModel)]="radioValue">
               <label nz-radio nzValue="Entreprise">Entreprise</label>
               <label nz-radio nzValue="Particulier">Particulier</label>
             </nz-radio-group>
           </div>
           <div class="display-flex justify-content-center flex-row widht-100">
+            <ng-container *ngIf="radioValue =='Entreprise'">
+              <nz-form-item>
+                <nz-form-control>
+                  <nz-input-group>
+                    <input formControlName="name" nz-input nzSize="large" placeholder="Nom de l'entreprise*" />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+            </ng-container>
+            <ng-container *ngIf="radioValue =='Particulier'">
+              <nz-form-item>
+                <nz-form-control>
+                  <nz-input-group>
+                    <input formControlName="name" nz-input nzSize="large" placeholder="Nom complet*" />
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+            </ng-container>
             <nz-form-item>
               <nz-form-control>
                 <nz-input-group>
-                  <input formControlName="userName" nz-input nzSize="large" placeholder="Username" />
+                  <input formControlName="email" nz-input nzSize="large" type="password" placeholder="Email de l'entreprise*" />
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
             <nz-form-item>
               <nz-form-control>
                 <nz-input-group>
-                  <input formControlName="password" nz-input nzSize="large" type="password" placeholder="Password" />
+                  <input formControlName="password" nz-input nzSize="large" type="password" placeholder="Password*" />
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
             <nz-form-item>
               <nz-form-control>
                 <nz-input-group>
-                  <input formControlName="password" nz-input nzSize="large" type="password" placeholder="Password" />
-                </nz-input-group>
-              </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-              <nz-form-control>
-                <nz-input-group>
-                  <input formControlName="password" nz-input nzSize="large" type="password" placeholder="Password" />
+                  <input formControlName="confirmPpassword" nz-input nzSize="large" type="password" placeholder="Confirmation du mot de passe*" />
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
@@ -78,7 +89,9 @@
   </div>
 
   <div class="display-flex justify-content-center align-items-center widht-100">
-    <button nz-button nzSize="large" nzShape="circle" class="e-icon" (click)="start()">
+    <button nz-button nzSize="large" nzShape="circle" class="e-icon"
+            [disabled]="validateForm.invalid"
+            (click)="submitForm(validateForm.value)">
       <i class="mdi mdi-arrow-right"></i>
     </button>
   </div>

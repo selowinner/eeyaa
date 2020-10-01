@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
@@ -11,21 +11,32 @@ export class ClientComponent implements OnInit {
   validateForm!: FormGroup;
   loading: boolean;
   isVisibleModal: boolean;
-  radioValue = 'Entreprise';
+  radioValue = "Entreprise";
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
+      name: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
-      remember: [true],
+      confirmPpassword: [null, [Validators.required, this.confirmationValidator]],
+      radioValue: ["Entreprise", [Validators.required]],
     });
   }
+
+  confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
+    if (!control.value) {
+      return {required: true};
+    } else if (control.value !== this.validateForm.controls.password.value) {
+      return {confirm: true, error: true};
+    }
+    // return {};
+  };
 
   submitForm(value: any): void {
     this.loading = true;
     // @TODO call api
     setTimeout(() => {
-      this.router.navigate([""]);
+      // this.router.navigate([""]);
     }, 2000);
 
   }
@@ -43,14 +54,19 @@ export class ClientComponent implements OnInit {
   }
 
   goRegisterProvider(): void {
+    this.isVisibleModal = false;
+
     this.router.navigate(["/auth/register/provider"]);
   }
 
   goRegisterClient(): void {
+    this.isVisibleModal = false;
+
     this.router.navigate(["/auth/register/client"]);
   }
 
   goLogin(): void {
+
     this.router.navigate(["/auth/login"]);
 
   }
