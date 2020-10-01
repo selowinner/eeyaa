@@ -31,7 +31,6 @@ export class WelcomeComponent implements OnInit {
 
   showModal(): void {
     this.isVisibleModal = true;
-
   }
 
   goRegisterProvider(): void {

@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
   validateForm!: FormGroup;
   loading: boolean;
+  isVisibleModal: boolean;
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.validateForm = this.fb.group({
@@ -34,5 +35,26 @@ export class LoginComponent implements OnInit {
   goWelcome(): void {
     this.router
       .navigate(["/welcome"]);
+  }
+
+  showModal(): void {
+    this.isVisibleModal = true;
+  }
+
+  goRegisterProvider(): void {
+    this.router.navigate(["/auth/register/provider"]);
+  }
+
+  goRegisterClient(): void {
+    this.router.navigate(["/auth/register/client"]);
+  }
+
+  goLogin(): void {
+    this.router.navigate(["/auth/login"]);
+
+  }
+
+  start(): void {
+    console.log("start");
   }
 }

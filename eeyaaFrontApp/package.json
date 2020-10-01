@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4300",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -21,7 +21,7 @@
     "@angular/router": "~10.0.6",
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
-    "material-design-icons": "^3.0.1",
+    "mdi": "^2.2.43",
     "ng-zorro-antd": "^9.3.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

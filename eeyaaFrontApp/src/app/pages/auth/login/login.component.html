@@ -1,6 +1,6 @@
 <nz-layout>
   <!--top-->
-  <div class="widht-100 display-flex flex-column h-100 justify-content-around">
+  <div class="widht-100 display-flex flex-column justify-content-around">
     <div class="container-fluid e-container-card" (click)="goWelcome()">
       <div class="e-content">
         <img src="../../../../assets/images/logo.png" class="e-logo">
@@ -11,16 +11,21 @@
       <p class="e-description">Veuillez s'il vous plait renseigner les champs de connexion.</p>
     </div>
   </div>
-  <div class="h-100 align-items-center container-fluid display-flex justify-content-space-between">
+  <div class="align-items-center container-fluid display-flex justify-content-space-between">
     <!--left-->
-    <div class="e-container-card e-container-btn">
+    <div class="e-container-card e-container-btn" (click)="showModal()">
       <div class="e-content">
         <span class="e-btn-login">Inscription</span>
       </div>
     </div>
     <!--middle-->
     <div class="e-container-form">
-      <form nz-form nz-row nzType="flex" class="flex-column align-items-center" [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)">
+      <form nz-form
+            nz-row
+            nzType="flex"
+            class="flex-column align-items-center"
+            [formGroup]="validateForm"
+            (ngSubmit)="submitForm(validateForm.value)">
         <div class="display-flex justify-content-center flex-row widht-100">
           <nz-form-item class="margin-right-1">
             <nz-form-control>
@@ -59,4 +64,29 @@
 
   </div>
 
+  <div class="display-flex justify-content-center align-items-center widht-100">
+    <button nz-button nzSize="large" nzShape="circle" class="e-icon" (click)="start()">
+      <i class="mdi mdi-arrow-right"></i>
+    </button>
+  </div>
 </nz-layout>
+
+<!--Modal pour le choix de type de compte-->
+<nz-modal
+  [(nzVisible)]="isVisibleModal"
+  nzTitle="Créer un compte"
+  [nzFooter]="footer"
+  (nzOnCancel)="isVisibleModal = !isVisibleModal"
+>
+  <ng-template #footer>
+
+  </ng-template>
+  <nz-space nz-row nzDirection="horizontal" class="justify-content-space-between display-flex">
+    <nz-space-item>
+      <button nz-button nzType="primary" nzShape="round" (click)="goRegisterProvider()">Créatif</button>
+    </nz-space-item>
+    <nz-space-item>
+      <button nz-button nzType="primary" nzShape="round" (click)="goRegisterClient()">Client</button>
+    </nz-space-item>
+  </nz-space>
+</nz-modal>

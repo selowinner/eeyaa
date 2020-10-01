@@ -2,7 +2,7 @@ $colorBlue: #226674;
 
 nz-layout {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
   min-width: 100%;
   align-items: center;
@@ -134,9 +134,22 @@ nz-layout {
 
 .login-form-margin {
   width: 80%;
-  label, .login-form-forgot{
+
+  label, .login-form-forgot {
     color: white;
     font-weight: 700;
+  }
+}
+
+.e-icon {
+  background: transparent;
+  border: 1px solid #fff;
+  height: 50px;
+  width: 50px;
+
+  .mdi {
+    color: #FFFFFF;
+    font-size: 26px;
   }
 }
 
@@ -146,5 +159,14 @@ h3 {
 }
 
 ::ng-deep {
+  .ant-modal-close {
+    &:focus {
+      outline: none !important;
+    }
+  }
 
+  .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: $colorBlue !important;
+    border-color: transparent !important;
+  }
 }

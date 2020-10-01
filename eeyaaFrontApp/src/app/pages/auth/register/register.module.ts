@@ -4,6 +4,9 @@ import {ClientComponent} from "./client/client.component";
 import {CreatifComponent} from "./creatif/creatif.component";
 import {RouterModule} from "@angular/router";
 import {RegisterRootingModule} from "src/app/pages/auth/register/register-rooting.module";
+import {NzSpaceModule} from "ng-zorro-antd/space";
+import {NgZorroAntdModule} from "ng-zorro-antd";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -12,6 +15,10 @@ import {RegisterRootingModule} from "src/app/pages/auth/register/register-rootin
     CommonModule,
     RouterModule,
     RegisterRootingModule,
+    NzSpaceModule,
+    NgZorroAntdModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
 })
 export class RegisterModule {
