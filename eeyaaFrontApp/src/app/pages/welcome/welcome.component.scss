@@ -1,0 +1,167 @@
+$colorBlue: #226674;
+* {
+  outline: none !important;
+}
+
+nz-layout {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 100%;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  background-image: url("./../../../assets/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  //filter: brightness(81%);
+  //background: #ababab2b;
+}
+
+.e-container-card {
+  border-radius: 100%;
+  //background: #4e4e4e26;
+  //background: #f5f5f538;
+  background: #52525226;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 167px;
+  width: 10%;
+  padding: 2em;
+
+
+}
+
+.e-content {
+  background: white;
+  border-radius: 100%;
+  padding: 1em;
+  height: 100%;
+  width: 100%;
+
+}
+
+.e-logo {
+  width: 100%;
+  height: 100%;
+}
+
+.e-btn-login {
+}
+
+.e-btn-register {
+}
+
+.e-btn-register, .e-btn-login {
+  color: $colorBlue;
+  font-size: 18px;
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Josefin Sans', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+.e-container-btn {
+  //height: 100%;
+  width: 11%;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  text-align: center;
+
+  .e-content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+.e-title {
+  //font-family: "Franklin Gothic Book";
+  color: white;
+  font-size: 80px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.e-description {
+  color: white;
+  //color: $colorBlue;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+h3 {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+::ng-deep {
+  .slick-initialized {
+    height: 100%;
+  }
+
+  .slick-slide {
+    background: inherit !important;
+
+    .slick-active {
+
+    }
+  }
+
+  .ant-carousel {
+    .slick-dots {
+      bottom: 0 !important;
+
+      li.slick-active {
+        button {
+          background: #ffff;
+          opacity: 1;
+          height: 14px;
+          border-radius: 100%;
+          width: 15px;
+        }
+      }
+
+      .slick-dots-bottom {
+
+      }
+    }
+  }
+
+  .ant-modal-title {
+    text-transform: uppercase;
+  }
+
+  .ant-modal-close {
+    &:focus {
+      outline: none !important;
+    }
+  }
+}
+nz-carousel {
+  align-items: center;
+  align-content: center;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  height: 24%;
+}
+
+[nz-carousel-content] {
+  text-align: center;
+  height: 160px;
+  //line-height: 160px;
+  background: #364d79;
+  color: #fff;
+  overflow: hidden;
+
+}
+
+[nz-button] {
+  text-transform: uppercase;
+}
+

@@ -17,12 +17,15 @@ import {JwtInterceptor} from './core/helpers/jwt.interceptor';
 import {AuthModule} from './pages/auth/auth.module';
 import {LayoutsModule} from './layouts/layouts.module';
 import {NgZorroAntdModule, NzIconModule} from 'ng-zorro-antd';
+import {WelcomeComponent} from "./pages/welcome/welcome.component";
+import {NzSpaceModule} from "ng-zorro-antd/space";
 
 registerLocaleData(fr);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -33,11 +36,11 @@ registerLocaleData(fr);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-
     AuthModule,
     LayoutsModule,
     NgZorroAntdModule,
     NzIconModule,
+    NzSpaceModule,
 
   ],
   providers: [

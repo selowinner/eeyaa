@@ -2,7 +2,7 @@ $colorBlue: #226674;
 
 nz-layout {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   width: 100%;
   min-width: 100%;
   align-items: center;
@@ -23,8 +23,9 @@ nz-layout {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 23%;
-  width: 11%;
+  //height: 23%;
+  height: 167px;
+  width: 10%;
   padding: 2em;
 
 
@@ -44,7 +45,6 @@ nz-layout {
   height: 100%;
 }
 
-
 .e-btn-login {
 }
 
@@ -62,8 +62,8 @@ nz-layout {
 }
 
 .e-container-btn {
-  height: 100%;
-  width: 10%;
+  width: initial !important;
+  height: 167px;
   align-items: center;
   align-content: center;
   display: flex;
@@ -74,24 +74,6 @@ nz-layout {
     width: 100%;
     align-items: center;
   }
-}
-
-::ng-deep {
-  .slick-initialized {
-    height: 100%;
-  }
-
-  .slick-slide {
-    background: inherit !important;
-
-    .slick-active {
-
-    }
-  }
-}
-
-nz-carousel {
-
 }
 
 .e-title {
@@ -105,19 +87,64 @@ nz-carousel {
 .e-description {
   color: white;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 20px;
 }
 
-[nz-carousel-content] {
-  text-align: center;
-  height: 160px;
-  //line-height: 160px;
-  background: #364d79;
-  color: #fff;
-  overflow: hidden;
+.e-container-form {
+  width: 90%;
+
+  form {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    nz-form-item {
+      width: 25%;
+      margin-bottom: 1rem;
+
+      nz-form-control {
+        nz-input-group {
+          input {
+            padding: 3%;
+            background: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+
+            //width: 64%;
+            border-radius: 6px;
+
+            &::placeholder {
+              color: white;
+              font-weight: bold;
+              font-size: 16px;
+            }
+
+            &:focus {
+              box-shadow: none;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.login-form-margin {
+  width: 80%;
+  label, .login-form-forgot{
+    color: white;
+    font-weight: 700;
+  }
 }
 
 h3 {
   color: #fff;
   margin-bottom: 0;
+}
+
+::ng-deep {
+
 }
