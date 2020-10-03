@@ -1,43 +1,60 @@
 <nz-layout>
-  <div class="e-container-top">
-    <!--top-->
-    <div class="padding-top-1 widht-100">
-      <div class="container-fluid e-container-card">
-        <div class="e-content">
-          <img src="../../../assets/images/logoBgBleu512.jpg" class="e-logo">
-        </div>
-      </div>
+  <nz-carousel
+    [nzEffect]="'fadeIn'"
+    [nzAutoPlaySpeed]="9000"
+    [nzTransitionSpeed]="8"
+    [nzAutoPlay]=true
+    nzDots="true"
+  >
+    <div nz-carousel-content *ngFor="let item of dataSlideImage">
+      <img [src]="item" alt="" class="h-100 widht-100 e-container-top">
     </div>
-    <!--middle-->
-    <div class="container display-flex justify-content-space-between align-items-center justify-content-center e-row">
-      <!--left-->
-      <div class="e-container-card e-container-btn" (click)="showModal()">
-        <div class="e-content">
-          <span class="e-btn-login">Inscription</span>
+  </nz-carousel>
+  <div class="e-ovelay">
+
+    <div class="e-container-top">
+      <!--top-->
+      <div class="widht-100">
+        <div class="container-fluid e-container-card">
+          <div class="e-content">
+            <img src="../../../assets/images/logoBgBleu512.jpg" class="e-logo">
+          </div>
         </div>
       </div>
       <!--middle-->
-      <nz-carousel
-        [nzEffect]="'fade'"
-        [nzAutoPlaySpeed]="5000"
-        [nzAutoPlay]=true
-      >
-        <div nz-carousel-content *ngFor="let item of dataSlide">
-          <h1 class="e-title">{{item.text}}</h1>
-          <p class="e-description">{{item.description}}</p>
+      <div class="container display-flex justify-content-space-between align-items-center justify-content-center e-row">
+        <!--left-->
+        <div class="e-container-card e-container-btn" (click)="showModal()">
+          <div class="e-content">
+            <span class="e-btn-login">Inscription</span>
+          </div>
         </div>
-      </nz-carousel>
+        <!--middle-->
+        <nz-carousel
+          [nzEffect]="'fadeIn'"
+          [nzAutoPlaySpeed]="9000"
+          [nzAutoPlay]=true
+          nzDots="false"
+        >
+          <div nz-carousel-content *ngFor="let item of dataSlide">
+            <h1 class="e-title">{{item.text}}</h1>
+            <p class="e-description">{{item.description}}</p>
+          </div>
+        </nz-carousel>
 
-      <!--right-->
-      <div class="e-container-card e-container-btn">
-        <div class="e-content">
-          <span class="e-btn-register" (click)="goLogin()">Connexion</span>
+        <!--right-->
+        <div class="e-container-card e-container-btn">
+          <div class="e-content">
+            <span class="e-btn-register" (click)="goLogin()">Connexion</span>
+          </div>
         </div>
+
       </div>
 
     </div>
-
   </div>
+
+
 </nz-layout>
 
 <!--Modal pour le choix de type de compte-->

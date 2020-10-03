@@ -27,11 +27,12 @@ export class CreatifComponent implements OnInit {
       this.router.navigate(["/auth/register/client"]);
     }
   */
-  today = new Date().getDate();
+  today = new Date();
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.validateForm = this.fb.group({
       name: [null, [Validators.required]],
+      pseudo: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
       confirmPpassword: [null, [Validators.required, this.confirmationValidator]],

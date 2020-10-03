@@ -19,7 +19,7 @@ nz-layout {
   border-radius: 100%;
   //background: #4e4e4e26;
   //background: #f5f5f538;
-  background: #52525226;
+  background: #ffffff42;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -215,4 +215,10 @@ h3 {
     background-color: $colorBlue !important;
     border-color: transparent !important;
   }
+}
+
+input[property="placeholder"] {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
 }

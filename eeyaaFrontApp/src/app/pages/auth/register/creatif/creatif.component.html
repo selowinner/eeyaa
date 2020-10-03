@@ -44,7 +44,7 @@
                 <nz-form-item>
                   <nz-form-control>
                     <nz-input-group>
-                      <input formControlName="email" nz-input nzSize="large" type="password" placeholder="Email*"/>
+                      <input formControlName="email" nz-input nzSize="large" type="text" placeholder="Email*"/>
                     </nz-input-group>
                   </nz-form-control>
                 </nz-form-item>
@@ -75,22 +75,22 @@
                 <nz-form-item>
                   <nz-form-control>
                     <nz-input-group>
-                      <input formControlName="name" nz-input nzSize="large" placeholder="Pseudo*"/>
+                      <input formControlName="pseudo" nz-input nzSize="large" placeholder="Pseudo*"/>
                     </nz-input-group>
                   </nz-form-control>
                 </nz-form-item>
-                <nz-form-item>
+                <nz-form-item class="width-22">
                   <nz-form-control>
                     <nz-input-group>
-                      <nz-date-picker
+                     <!-- <nz-date-picker
                         [nzDisabledDate]="disabledDate"
                         nzPlaceHolder="date de naissance*"
                         formControlName="dateNaissance" nzSize="large"
-                      ></nz-date-picker>
-                      <!--<input type="date"
-                             [max]="today"
+                      ></nz-date-picker>-->
+                      <input type="date"
+                             max="03/10/2020"
                              placeholder="date de naissance*"
-                             formControlName="dateNaissance" nzSize="large">-->
+                             formControlName="dateNaissance" nzSize="large">
                     </nz-input-group>
                   </nz-form-control>
                 </nz-form-item>
@@ -100,7 +100,7 @@
                       <input formControlName="nationnalite"
                              nz-input
                              nzSize="large"
-                             type="password"
+                             type="text"
                              placeholder="Nationnalité"/>
                     </nz-input-group>
                   </nz-form-control>
@@ -111,7 +111,7 @@
                       <input formControlName="contact"
                              nz-input
                              nzSize="large"
-                             type="password"
+                             type="number"
                              placeholder="Contact"/>
                     </nz-input-group>
                   </nz-form-control>

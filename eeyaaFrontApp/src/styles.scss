@@ -45,6 +45,7 @@ $colorBlue: #226674;
 .flex-1 {
   flex: 1;
 }
+
 .flex-2 {
   flex: 2;
 }
@@ -154,4 +155,8 @@ $colorBlue: #226674;
 
 .align-items-flex-end {
   align-items: flex-end;
+}
+
+.width-22 {
+  width: 22% !important;
 }

@@ -14,10 +14,11 @@ export class WelcomeComponent implements OnInit {
       text: "eeyaa",
       description: "Entrez dans l'ère du participatif",
     },
-    {
-      text: "Lorem ipsum",
-      description: "Lorem ipsum dolor sit amet",
-    },
+  ];
+  dataSlideImage: Array<string> = [
+    "../../../assets/images/138.jpg",
+    "../../../assets/images/929.jpg",
+    "../../../assets/images/1861.jpg",
   ];
   isVisibleModal = false;
 
