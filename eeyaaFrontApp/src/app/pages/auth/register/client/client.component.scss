@@ -24,10 +24,9 @@ nz-layout {
   align-items: center;
   justify-content: center;
   //height: 23%;
-  height: 167px;
+  height: 100%;
   width: 10%;
   padding: 2em;
-
 
 }
 
@@ -40,10 +39,7 @@ nz-layout {
 
 }
 
-.e-logo {
-  width: 100%;
-  height: 100%;
-}
+
 
 .e-btn-login {
 }
@@ -91,7 +87,7 @@ nz-layout {
 }
 
 .e-container-form {
-  width: 90%;
+  width: initial;
 
   form {
     display: flex;
@@ -101,9 +97,10 @@ nz-layout {
     div {
 
       nz-form-item {
-        width: 23%;
+        width: initial;
         margin-bottom: 1rem;
         margin-right: 1rem;
+        margin-left: 1rem;
 
         nz-form-control {
           nz-input-group {

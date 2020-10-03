@@ -1,74 +1,75 @@
 <nz-layout>
   <!--top-->
-  <div class="widht-100 display-flex flex-column justify-content-around">
-    <div class="container-fluid e-container-card" (click)="goWelcome()">
-      <div class="e-content">
-        <img src="../../../../assets/images/logo.png" class="e-logo">
-      </div>
-    </div>
-    <div>
-      <span class="e-title">Connexion</span>
-      <p class="e-description">Veuillez s'il vous plait renseigner les champs de connexion.</p>
-    </div>
-  </div>
-  <div class="align-items-center container-fluid display-flex justify-content-space-between">
-    <!--left-->
-    <div class="e-container-card e-container-btn" (click)="showModal()">
-      <div class="e-content">
-        <span class="e-btn-login">Inscription</span>
-      </div>
-    </div>
-    <!--middle-->
-    <div class="e-container-form">
-      <form nz-form
-            nz-row
-            nzType="flex"
-            class="flex-column align-items-center"
-            [formGroup]="validateForm"
-            (ngSubmit)="submitForm(validateForm.value)">
-        <div class="display-flex justify-content-center flex-row widht-100">
-          <nz-form-item class="margin-right-1">
-            <nz-form-control>
-              <nz-input-group>
-                <input formControlName="userName" nz-input nzSize="large" placeholder="Username" />
-              </nz-input-group>
-            </nz-form-control>
-          </nz-form-item>
-          <nz-form-item>
-            <nz-form-control>
-              <nz-input-group>
-                <input formControlName="password" nz-input nzSize="large" type="password" placeholder="Password" />
-              </nz-input-group>
-            </nz-form-control>
-          </nz-form-item>
+  <div class="e-container-top">
+    <div class="widht-100 display-flex flex-column justify-content-around">
+      <div class="container-fluid e-container-card" (click)="goWelcome()">
+        <div class="e-content">
+          <img src="../../../../assets/images/logoBgBleu512.jpg" class="e-logo">
         </div>
-        <div nz-row nzType="flex" nzJustify="space-between" class="login-form-margin">
-          <div nz-col [nzSpan]="12">
-            <label nz-checkbox formControlName="remember">
-              <span>Se souvenir de moi</span>
-            </label>
-          </div>
-          <div nz-col [nzSpan]="12">
-            <a class="login-form-forgot">Mot de passe oublié ?</a>
-          </div>
-        </div>
-      </form>
-    </div>
-
-    <!--right-->
-    <div class="e-container-card e-container-btn">
-      <div class="e-content">
-        <span class="e-btn-register">Connexion</span>
+      </div>
+      <div>
+        <span class="e-title">Connexion</span>
+        <p class="e-description">Veuillez s'il vous plait renseigner les champs de connexion.</p>
       </div>
     </div>
+    <div class="align-items-center container display-flex justify-content-space-between e-row">
+      <!--left-->
+      <div class="e-container-card e-container-btn" (click)="showModal()">
+        <div class="e-content">
+          <span class="e-btn-login">Inscription</span>
+        </div>
+      </div>
+      <!--middle-->
+      <div class="e-container-form">
+        <form nz-form
+              nz-row
+              nzType="flex"
+              class="flex-column align-items-center"
+              [formGroup]="validateForm"
+              (ngSubmit)="submitForm(validateForm.value)">
+          <div class="display-flex justify-content-center flex-row widht-100">
+            <nz-form-item class="margin-right-1">
+              <nz-form-control>
+                <nz-input-group>
+                  <input formControlName="userName" nz-input nzSize="large" placeholder="Username" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control>
+                <nz-input-group>
+                  <input formControlName="password" nz-input nzSize="large" type="password" placeholder="Password" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-row nzType="flex" nzJustify="space-between" class="login-form-margin">
+            <div nz-col >
+              <label nz-checkbox formControlName="remember">
+                <span>Je suis un créatif</span>
+              </label>
+            </div>
+            <div nz-col >
+              <a class="login-form-forgot">Mot de passe oublié ?</a>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--right-->
+      <div class="e-container-card e-container-btn">
+        <div class="e-content">
+          <span class="e-btn-register">Connexion</span>
+        </div>
+      </div>
 
+    </div>
+    <div class="display-flex justify-content-center align-items-center widht-100">
+      <button nz-button nzSize="large" nzShape="circle" class="e-icon" (click)="start()">
+        <i class="mdi mdi-arrow-right"></i>
+      </button>
+    </div>
   </div>
 
-  <div class="display-flex justify-content-center align-items-center widht-100">
-    <button nz-button nzSize="large" nzShape="circle" class="e-icon" (click)="start()">
-      <i class="mdi mdi-arrow-right"></i>
-    </button>
-  </div>
 </nz-layout>
 
 <!--Modal pour le choix de type de compte-->

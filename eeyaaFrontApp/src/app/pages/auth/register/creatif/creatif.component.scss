@@ -24,7 +24,7 @@ nz-layout {
   align-items: center;
   justify-content: center;
   //height: 23%;
-  height: 167px;
+  height: 100%;
   width: 10%;
   padding: 2em;
 
@@ -49,6 +49,14 @@ nz-layout {
 }
 
 .e-btn-register {
+}
+
+.h-initial {
+  height: initial !important;
+}
+
+.e-container-top {
+  padding: 3rem 0;
 }
 
 .e-btn-register, .e-btn-login {
@@ -92,7 +100,7 @@ nz-layout {
 }
 
 .e-container-form {
-  width: 90%;
+  width: initial;
 
   form {
     display: flex;
@@ -102,9 +110,10 @@ nz-layout {
     div {
 
       nz-form-item {
-        width: 23%;
+        width: initial;
         margin-bottom: 1rem;
         margin-right: 1rem;
+        margin-left: 1rem;
 
         nz-form-control {
           nz-input-group {
@@ -130,8 +139,10 @@ nz-layout {
 
               }
             }
-            nz-date-picker{
+
+            nz-date-picker {
               width: 100%;
+
               &::placeholder {
                 color: white;
                 font-weight: bold;
@@ -148,6 +159,8 @@ nz-layout {
       }
 
       .e-container-radio-group {
+        flex: 1.8;
+
         nz-radio-group {
           label {
             color: #fff;
@@ -180,10 +193,12 @@ nz-layout {
     font-size: 26px;
   }
 }
-.e-sexe{
+
+.e-sexe {
   color: white;
   font-weight: 700;
 }
+
 h3 {
   color: #fff;
   margin-bottom: 0;

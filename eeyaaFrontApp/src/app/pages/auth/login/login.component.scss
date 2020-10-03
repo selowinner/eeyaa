@@ -13,6 +13,19 @@ nz-layout {
   background-repeat: no-repeat;
   //filter: brightness(81%);
   //background: #ababab2b;
+
+  .e-container-top {
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    min-width: 100%;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+  }
+
 }
 
 .e-container-card {
@@ -23,8 +36,8 @@ nz-layout {
   display: flex;
   align-items: center;
   justify-content: center;
-  //height: 23%;
-  height: 167px;
+  height: 100%;
+  //height: 167px;
   width: 10%;
   padding: 2em;
 
@@ -38,17 +51,23 @@ nz-layout {
   height: 100%;
   width: 100%;
 
+
 }
 
 .e-logo {
   width: 100%;
   height: 100%;
+  border-radius: 20%;
 }
 
 .e-btn-login {
 }
 
 .e-btn-register {
+}
+
+.e-row {
+  min-width: 76%;
 }
 
 .e-btn-register, .e-btn-login {
@@ -82,6 +101,7 @@ nz-layout {
   font-size: 80px;
   margin: 0;
   font-weight: 600;
+
 }
 
 .e-description {
@@ -99,8 +119,9 @@ nz-layout {
     flex-direction: row;
 
     nz-form-item {
-      width: 25%;
+      width: initial;
       margin-bottom: 1rem;
+      //margin-left: 1rem;
 
       nz-form-control {
         nz-input-group {
@@ -133,7 +154,7 @@ nz-layout {
 }
 
 .login-form-margin {
-  width: 80%;
+  width: 40%;
 
   label, .login-form-forgot {
     color: white;

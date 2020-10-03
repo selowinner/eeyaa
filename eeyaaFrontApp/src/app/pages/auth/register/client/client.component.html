@@ -1,100 +1,125 @@
 <nz-layout>
   <!--top-->
-  <div class="widht-100 display-flex flex-column justify-content-around">
-    <div class="container-fluid e-container-card" (click)="goWelcome()">
-      <div class="e-content">
-        <img src="../../../../assets/images/logo.png" class="e-logo">
-      </div>
-    </div>
-    <div>
-      <span class="e-title">Inscription</span>
-      <p class="e-description">Cher client, veuillez s'il vous plait renseigner les champs d'inscription.<br>
-                               NB: Les champs obligatoire sont indiqués avec un asterisque(*).
-      </p>
-    </div>
-  </div>
-  <div class="align-items-center container-fluid display-flex justify-content-space-between">
-    <!--left-->
-    <div class="e-container-card e-container-btn" (click)="showModal()">
-      <div class="e-content">
-        <span class="e-btn-login">Inscription</span>
-      </div>
-    </div>
-    <!--middle-->
-    <div class="e-container-form">
-      <form nz-form
-            nz-row
-            nzType="flex"
-            class="flex-column align-items-center"
-            [formGroup]="validateForm"
-            (ngSubmit)="submitForm(validateForm.value)">
-        <div class="flex-column align-items-center justify-content-space-between widht-100">
-          <div class="e-container-radio-group margin-bottom-1">
-            <nz-radio-group nzName="radiogroup" formControlName="radioValue" [(ngModel)]="radioValue">
-              <label nz-radio nzValue="Entreprise">Entreprise</label>
-              <label nz-radio nzValue="Particulier">Particulier</label>
-            </nz-radio-group>
-          </div>
-          <div class="display-flex justify-content-center flex-row widht-100">
-            <ng-container *ngIf="radioValue =='Entreprise'">
-              <nz-form-item>
-                <nz-form-control>
-                  <nz-input-group>
-                    <input formControlName="name" nz-input nzSize="large" placeholder="Nom de l'entreprise*" />
-                  </nz-input-group>
-                </nz-form-control>
-              </nz-form-item>
-            </ng-container>
-            <ng-container *ngIf="radioValue =='Particulier'">
-              <nz-form-item>
-                <nz-form-control>
-                  <nz-input-group>
-                    <input formControlName="name" nz-input nzSize="large" placeholder="Nom complet*" />
-                  </nz-input-group>
-                </nz-form-control>
-              </nz-form-item>
-            </ng-container>
-            <nz-form-item>
-              <nz-form-control>
-                <nz-input-group>
-                  <input formControlName="email" nz-input nzSize="large" type="password" placeholder="Email de l'entreprise*" />
-                </nz-input-group>
-              </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-              <nz-form-control>
-                <nz-input-group>
-                  <input formControlName="password" nz-input nzSize="large" type="password" placeholder="Password*" />
-                </nz-input-group>
-              </nz-form-control>
-            </nz-form-item>
-            <nz-form-item>
-              <nz-form-control>
-                <nz-input-group>
-                  <input formControlName="confirmPpassword" nz-input nzSize="large" type="password" placeholder="Confirmation du mot de passe*" />
-                </nz-input-group>
-              </nz-form-control>
-            </nz-form-item>
-          </div>
+  <div class="e-container-top">
+    <div class="widht-100 display-flex flex-column justify-content-around">
+      <div class="container-fluid e-container-card" (click)="goWelcome()">
+        <div class="e-content">
+          <img src="../../../../../assets/images/logoBgBleu512.jpg" class="e-logo">
         </div>
-      </form>
-    </div>
-    <!--right-->
-    <div class="e-container-card e-container-btn">
-      <div class="e-content">
-        <span class="e-btn-register">Connexion</span>
+      </div>
+      <div>
+        <span class="e-title">Inscription</span>
+        <p class="e-description">
+          Cher client, veuillez s'il vous plait renseigner les champs d'inscription.<br>
+          NB: Les champs obligatoire sont indiqués avec un asterisque(*).
+        </p>
       </div>
     </div>
 
+    <div class="align-items-center container-fluid display-flex justify-content-space-around e-row">
+      <!--left-->
+      <div class="e-container-card e-container-btn" (click)="showModal()">
+        <div class="e-content">
+          <span class="e-btn-login">Inscription</span>
+        </div>
+      </div>
+      <!--middle-->
+      <div class="e-container-form h-100">
+        <form nz-form
+              nz-row
+              nzType="flex"
+              class="flex-column align-items-center"
+              [formGroup]="validateForm"
+              (ngSubmit)="submitForm(validateForm.value)">
+          <div class="flex-column align-items-center justify-content-space-between">
+            <div class="e-container-radio-group margin-bottom-1">
+              <nz-radio-group nzName="radiogroup" formControlName="radioValue" [(ngModel)]="radioValue">
+                <label nz-radio nzValue="Entreprise">Entreprise</label>
+                <label nz-radio nzValue="Particulier">Particulier</label>
+              </nz-radio-group>
+            </div>
+            <div class="display-flex justify-content-center flex-row widht-100">
+              <ng-container *ngIf="radioValue =='Entreprise'">
+                <nz-form-item>
+                  <nz-form-control>
+                    <nz-input-group>
+                      <input formControlName="name" nz-input nzSize="large" placeholder="Nom de l'entreprise*"/>
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-control>
+                    <nz-input-group>
+                      <input formControlName="email"
+                             nz-input
+                             nzSize="large"
+                             type="password"
+                             placeholder="Email de l'entreprise*"/>
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+              </ng-container>
+              <ng-container *ngIf="radioValue =='Particulier'">
+                <nz-form-item>
+                  <nz-form-control>
+                    <nz-input-group>
+                      <input formControlName="name" nz-input nzSize="large" placeholder="Nom complet*"/>
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-control>
+                    <nz-input-group>
+                      <input formControlName="email"
+                             nz-input
+                             nzSize="large"
+                             type="password"
+                             placeholder="Email*"/>
+                    </nz-input-group>
+                  </nz-form-control>
+                </nz-form-item>
+              </ng-container>
+
+              <nz-form-item>
+                <nz-form-control>
+                  <nz-input-group>
+                    <input formControlName="password" nz-input nzSize="large" type="password" placeholder="Password*"/>
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control>
+                  <nz-input-group>
+                    <input formControlName="confirmPpassword"
+                           nz-input
+                           nzSize="large"
+                           type="password"
+                           placeholder="Confirmation du mot de passe*"/>
+                  </nz-input-group>
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--right-->
+      <div class="e-container-card e-container-btn" (click)="goLogin()">
+        <div class="e-content">
+          <span class="e-btn-register">Connexion</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="display-flex justify-content-center align-items-center widht-100">
+      <button nz-button nzSize="large" nzShape="circle" class="e-icon"
+              [disabled]="validateForm.invalid"
+              (click)="submitForm(validateForm.value)">
+        <i class="mdi mdi-arrow-right"></i>
+      </button>
+    </div>
   </div>
 
-  <div class="display-flex justify-content-center align-items-center widht-100">
-    <button nz-button nzSize="large" nzShape="circle" class="e-icon"
-            [disabled]="validateForm.invalid"
-            (click)="submitForm(validateForm.value)">
-      <i class="mdi mdi-arrow-right"></i>
-    </button>
-  </div>
 </nz-layout>
 
 <!--Modal pour le choix de type de compte-->
