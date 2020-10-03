@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dashboadTraitementdocs": {
+    "eeyaa": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dashboadTraitementdocs",
+            "outputPath": "dist/eeyaa",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -36,8 +36,7 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/typed-js/core/index.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
@@ -74,18 +73,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dashboadTraitementdocs:build"
+            "browserTarget": "eeyaa:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "dashboadTraitementdocs:build:production"
+              "browserTarget": "eeyaa:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dashboadTraitementdocs:build"
+            "browserTarget": "eeyaa:build"
           }
         },
         "test": {
@@ -122,16 +121,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "dashboadTraitementdocs:serve"
+            "devServerTarget": "eeyaa:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "dashboadTraitementdocs:serve:production"
+              "devServerTarget": "eeyaa:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "dashboadTraitementdocs"
+  "defaultProject": "eeyaa"
 }

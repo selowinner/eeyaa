@@ -3,6 +3,7 @@
     [nzEffect]="'fadeIn'"
     [nzAutoPlaySpeed]="9000"
     [nzAutoPlay]=true
+    [nzTransitionSpeed]="1"
     nzDots="true"
   >
     <div nz-carousel-content *ngFor="let item of dataSlideImage">
@@ -34,6 +35,8 @@
           [nzAutoPlaySpeed]="9000"
           [nzAutoPlay]=true
           nzDots="false"
+          [nzTransitionSpeed]="1"
+
         >
           <div nz-carousel-content *ngFor="let item of dataSlide">
             <h1 class="e-title">{{item.text}}</h1>
