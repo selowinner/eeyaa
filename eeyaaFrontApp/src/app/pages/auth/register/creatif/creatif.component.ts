@@ -14,6 +14,8 @@ export class CreatifComponent implements OnInit {
   isVisibleModal: boolean;
   radioValue = "Masculin";
   currentStep = 1;
+  today = new Date();
+
   /*
 
     goRegisterProvider(): void {
@@ -27,7 +29,6 @@ export class CreatifComponent implements OnInit {
       this.router.navigate(["/auth/register/client"]);
     }
   */
-  today = new Date();
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.validateForm = this.fb.group({

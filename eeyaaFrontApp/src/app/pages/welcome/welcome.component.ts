@@ -14,6 +14,14 @@ export class WelcomeComponent implements OnInit {
       text: "eeyaa",
       description: "Entrez dans l'ère du participatif",
     },
+    {
+      text: "Lorem",
+      description: " nesciunt nisi quasi quos temporibus unde voluptas?",
+    },
+    {
+      text: "Accusamus",
+      description: "dolorum eveniet excepturi exercitationem fugit hic incidunt iusto maiores,",
+    },
   ];
   dataSlideImage: Array<string> = [
     "../../../assets/images/138.jpg",
@@ -22,12 +30,16 @@ export class WelcomeComponent implements OnInit {
   ];
   isVisibleModal = false;
 
+
   constructor(private fb: FormBuilder,
               private modal: NzModalService,
               private router: Router) {
+
+
   }
 
   ngOnInit(): void {
+
   }
 
   showModal(): void {

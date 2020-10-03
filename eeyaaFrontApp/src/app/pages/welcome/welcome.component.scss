@@ -41,7 +41,7 @@ nz-layout {
 
       .e-row {
         min-width: 76%;
-
+flex: 1;
         .e-container-btn {
           width: 12%;
           align-items: center;
@@ -69,20 +69,40 @@ nz-layout {
 
           ::ng-deep {
             .slick-initialized {
-              //height: 100%;
+
               .slick-list {
                 .slick-track {
                   width: inherit !important;
+                  display: flex;
+                  justify-content: center;
+                  align-content: center;
+                  align-items: center;
+
+                  .slick-slide {
+                    // display: none;
+                  }
+
+                  .slick-slide.slick-active {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    text-align: center;
+                    flex-direction: column;
+                    position: absolute !important;
+                    width: 100% !important;
+                    left: 0 !important;
+                  }
                 }
               }
 
-              .slick-list.slick-active {
+              /*.slick-list.slick-active {
                 display: flex;
                 justify-content: flex-end;
                 align-items: flex-end;
                 align-content: flex-end;
                 text-align: right;
-              }
+              }*/
             }
 
             .slick-slide {
