@@ -41,7 +41,8 @@ nz-layout {
 
       .e-row {
         min-width: 76%;
-flex: 1;
+        flex: 1;
+
         .e-container-btn {
           width: 12%;
           align-items: center;
@@ -58,7 +59,7 @@ flex: 1;
           }
         }
 
-        nz-carousel {
+        nz-carousel, #element {
           display: flex;
           justify-content: center;
           flex-direction: column;
@@ -184,11 +185,14 @@ flex: 1;
   letter-spacing: -.4rem;
 }
 
-.e-description {
-  color: white;
-  //color: $colorBlue;
-  font-weight: bold;
-  font-size: 20px;
+#element {
+  .e-description {
+    color: white;
+    //color: $colorBlue;
+    font-weight: bold;
+    //font-size: 20px !important;
+    letter-spacing: 0rem !important;
+  }
 }
 
 
