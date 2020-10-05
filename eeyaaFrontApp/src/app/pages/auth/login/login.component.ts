@@ -22,9 +22,11 @@ export class LoginComponent implements OnInit {
 
   submitForm(value: any): void {
     this.loading = true;
+    console.log(value);
     // @TODO call api
     setTimeout(() => {
-      this.router.navigate([""]);
+      // this.router.navigate([""]);
+      this.loading = false;
     }, 2000);
 
   }
@@ -49,12 +51,4 @@ export class LoginComponent implements OnInit {
     this.router.navigate(["/auth/register/client"]);
   }
 
-  goLogin(): void {
-    this.router.navigate(["/auth/login"]);
-
-  }
-
-  start(): void {
-    console.log("start");
-  }
 }

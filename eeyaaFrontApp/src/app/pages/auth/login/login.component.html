@@ -31,25 +31,25 @@
             <nz-form-item class="margin-right-1">
               <nz-form-control>
                 <nz-input-group>
-                  <input formControlName="userName" nz-input nzSize="large" placeholder="Username" />
+                  <input formControlName="userName" nz-input nzSize="large" placeholder="Username"/>
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
             <nz-form-item>
               <nz-form-control>
                 <nz-input-group>
-                  <input formControlName="password" nz-input nzSize="large" type="password" placeholder="Password" />
+                  <input formControlName="password" nz-input nzSize="large" type="password" placeholder="Password"/>
                 </nz-input-group>
               </nz-form-control>
             </nz-form-item>
           </div>
           <div nz-row nzType="flex" nzJustify="space-between" class="login-form-margin">
-            <div nz-col >
+            <div nz-col>
               <label nz-checkbox formControlName="remember">
                 <span>Je suis un créatif</span>
               </label>
             </div>
-            <div nz-col >
+            <div nz-col>
               <a class="login-form-forgot">Mot de passe oublié ?</a>
             </div>
           </div>
@@ -64,12 +64,13 @@
 
     </div>
     <div class="display-flex justify-content-center align-items-center widht-100">
-      <button nz-button nzSize="large" nzShape="circle" class="e-icon" (click)="start()">
+      <button nz-button nzSize="large" nzShape="circle" class="e-icon"
+              [disabled]="validateForm.invalid || loading"
+              (click)="submitForm(validateForm.value)">
         <i class="mdi mdi-arrow-right"></i>
       </button>
     </div>
   </div>
-
 </nz-layout>
 
 <!--Modal pour le choix de type de compte-->

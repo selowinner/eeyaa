@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   styleUrls: ["./client.component.scss"],
 })
 export class ClientComponent implements OnInit {
-  validateForm!: FormGroup;
+  validateForm: FormGroup;
   loading: boolean;
   isVisibleModal: boolean;
   radioValue = "Entreprise";
@@ -34,9 +34,11 @@ export class ClientComponent implements OnInit {
 
   submitForm(value: any): void {
     this.loading = true;
+    console.log(value);
     // @TODO call api
     setTimeout(() => {
       // this.router.navigate([""]);
+      this.loading = false;
     }, 2000);
 
   }
@@ -45,8 +47,7 @@ export class ClientComponent implements OnInit {
   }
 
   goWelcome(): void {
-    this.router
-      .navigate(["/welcome"]);
+    this.router.navigate(["/welcome"]);
   }
 
   showModal(): void {
@@ -61,17 +62,12 @@ export class ClientComponent implements OnInit {
 
   goRegisterClient(): void {
     this.isVisibleModal = false;
-
     this.router.navigate(["/auth/register/client"]);
   }
 
   goLogin(): void {
-
     this.router.navigate(["/auth/login"]);
 
   }
 
-  start(): void {
-    console.log("start");
-  }
 }

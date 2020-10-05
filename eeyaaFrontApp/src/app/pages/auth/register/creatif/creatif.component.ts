@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import differenceInCalendarDays from "date-fns/differenceInCalendarDays";
 
 @Component({
   selector: "app-creatif",
@@ -33,13 +32,13 @@ export class CreatifComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router) {
     this.validateForm = this.fb.group({
       name: [null, [Validators.required]],
-      pseudo: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
       confirmPpassword: [null, [Validators.required, this.confirmationValidator]],
-      contact: [null, [Validators.required]],
-      nationnalite: [null, [Validators.required]],
+      pseudo: [null, [Validators.required]],
       dateNaissance: [null, [Validators.required]],
+      nationnalite: [null, [Validators.required]],
+      contact: [null, [Validators.required]],
       radioValue: ["Masculin", [Validators.required]],
     });
   }
@@ -53,15 +52,13 @@ export class CreatifComponent implements OnInit {
     // return {};
   };
 
-  disabledDate = (current: Date): boolean => {
-    return differenceInCalendarDays(current, new Date()) > 0;
-  };
-
   submitForm(value: any): void {
     this.loading = true;
+    console.log(value);
     // @TODO call api
     setTimeout(() => {
       // this.router.navigate([""]);
+      this.loading = false;
     }, 2000);
 
   }
@@ -77,10 +74,6 @@ export class CreatifComponent implements OnInit {
   goLogin(): void {
     this.router.navigate(["/auth/login"]);
 
-  }
-
-  start(): void {
-    console.log("start");
   }
 
   changeStep(currentStep: number): void {

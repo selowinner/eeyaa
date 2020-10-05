@@ -45,7 +45,7 @@
                 <nz-form-item>
                   <nz-form-control>
                     <nz-input-group>
-                      <input formControlName="email" nz-input nzSize="large" type="text" placeholder="Email*"/>
+                      <input formControlName="email" nz-input nzSize="large" type="email" placeholder="Email*"/>
                     </nz-input-group>
                   </nz-form-control>
                 </nz-form-item>
@@ -152,7 +152,7 @@
       </ng-container>
       <ng-container *ngIf="currentStep == 2">
         <button nz-button nzSize="large" nzShape="circle" class="e-icon"
-                [disabled]="validateForm.invalid"
+                [disabled]="validateForm.invalid || loading"
                 (click)="submitForm(validateForm.value)">
           <i class="mdi mdi-arrow-right"></i>
         </button>

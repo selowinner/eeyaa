@@ -53,7 +53,7 @@
                       <input formControlName="email"
                              nz-input
                              nzSize="large"
-                             type="password"
+                             type="email"
                              placeholder="Email de l'entreprise*"/>
                     </nz-input-group>
                   </nz-form-control>
@@ -113,7 +113,7 @@
 
     <div class="display-flex justify-content-center align-items-center widht-100">
       <button nz-button nzSize="large" nzShape="circle" class="e-icon"
-              [disabled]="validateForm.invalid"
+              [disabled]="validateForm.invalid || loading"
               (click)="submitForm(validateForm.value)">
         <i class="mdi mdi-arrow-right"></i>
       </button>
