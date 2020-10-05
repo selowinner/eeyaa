@@ -10,46 +10,47 @@ import {
 	ManyToOne,
 	OneToMany
 } from 'typeorm';
+import { TypeClient } from 'src/common/enum/ClientEnum';
 
 @Entity()
 export class ClientsEntity extends BaseEntity {
 	@PrimaryGeneratedColumn() id: number;
 
-	@Column({ length: 25 })
+	@Column({ length: 25, default: '' })
 	nameEntreprise: string;
 
-	@Column()
-  address: string;
+	@Column({ default: '' })
+	address: string;
 
-	@Column()
+	@Column({ default: '' })
 	registreCommerce: string;
 
-	@Column()
+	@Column({ default: '' })
   describe: string;
 
-  @Column()
+  @Column({ default: '' })
 	name: string;
   
   @Column({ length: 255 })
   password: string;
 
   @Column({ length: 50 })
-  email: string;
-  
-  @Column()
-  birthDate: Date;
+	email: string;
+	
+	@Column({ default: TypeClient.PARTICULIER })
+  type: string;
 
-  @Column({ length: 50 })
+  @Column({ length: 50, default: '' })
   fonctions: string;
 
-  @Column()
+  @Column({ default: '' })
   logo: string;
 
-  @Column()
+  @Column({ default: '' })
   namePiece: string;
 
-	@Column({ length: 25 })
-	recovery: string;
+	@Column({ type: 'int' })
+	recovery: number;
 
 	@Column({ default: true })
   isActive: boolean;

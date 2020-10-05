@@ -1,3 +1,9 @@
 export interface ResponseInterface {
-  access_token : JsonWebKey["alg"]
+  etat: boolean,
+  error?: Error,
+  access_token ? : JsonWebKey["alg"]
+}
+
+export interface ResponseJwt {
+  access_token ? : JsonWebKey["alg"]
 }

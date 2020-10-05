@@ -1,9 +1,9 @@
-import { Controller, Post, Body, Get, Request, Logger, Res, Query, UseGuards } from '@nestjs/common';
+import { Controller, Post, Body, Get, Request, Logger, Res, Query, UseGuards, HttpException, HttpStatus } from '@nestjs/common';
 import { Response } from 'express';
 import { AuthGuard } from '@nestjs/passport'
 import { ClientsService } from '../services/clients.service';
 import { ResponseInterface } from 'src/common/interfaces/ResponseInterface';
-import { LoginClientDto } from '../dto/CreateClient.dto';
+import { CreateClientDto, LoginClientDto } from '../dto/CreateClient.dto';
 
 @Controller('clients')
 export class ClientsController {
@@ -13,9 +13,20 @@ export class ClientsController {
   }
 
 
-  //@UseGuards(AuthGuard('local'))
-  @Post('/login')
-  async login(@Request() req, @Body() loginClientDto: LoginClientDto): Promise<ResponseInterface | Error> {
-    return await this.service.findClientByLoginClientDto(loginClientDto)
+  @Post('/signup')
+  async signup(@Request() req, @Body() client: CreateClientDto): Promise<ResponseInterface | Error> {
+    
+    if (client.password === client.confirmPassword) {
+      try {
+        const jwt = await this.service.create(client);
+        return {etat: true, ...jwt}
+      } catch (error) {
+        this.logger.error(error.message());
+        return { etat: false, error };
+      }
+    }
+    else {
+      return { etat: false, error: new Error('Le mot de passe ne correspond pas à la confirmation') }
+    }
   }
 }

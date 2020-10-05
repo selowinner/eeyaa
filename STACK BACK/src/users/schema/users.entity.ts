@@ -10,6 +10,7 @@ import {
 	OneToMany
 } from 'typeorm';
 import { CompetencesEntity } from 'src/competences/schema/competences.entity';
+import { Sexe } from 'src/common/enum/GlobalEnum';
 
 @Entity()
 export class UsersEntity extends BaseEntity {
@@ -17,9 +18,6 @@ export class UsersEntity extends BaseEntity {
 
 	@Column({ length: 25 })
 	name: string;
-
-	@Column({ length: 110 })
-  firstname: string;
 
 	@Column({ length: 50 })
 	pseudo: string;
@@ -38,24 +36,33 @@ export class UsersEntity extends BaseEntity {
   @Column({ length: 50 })
   nationnalite: string;
 
-  @Column({ length: 50 })
+  @Column({ length: 50, default: "" })
   numberPiece: string;
 
-  @Column()
+  @Column({ length: 50, default: "" })
 	namePiece: string;
 
-	@Column({ length: 25 })
-	recovery: string;
+	@Column({ default: Sexe.MASCULIN })
+	sexe: Sexe;
 
-	@Column({ type: "int" })
+	@Column({ type: 'int' })
+	recovery: number;
+
+	@Column({ type: "int", default: 0 })
   competences_id: number;
 
-  @ManyToOne(() => CompetencesEntity, (competences) => competences.users)
-	@JoinColumn({ name: 'competences_id' })
-	competences: CompetencesEntity;
+  // @ManyToOne(() => CompetencesEntity, (competences) => competences.users)
+	// @JoinColumn({ name: 'competences_id' })
+	// competences: CompetencesEntity;
 
 	@Column({ default: true })
-  isActive: boolean;
+	isActive: boolean;
+	
+	@Column({ default: false })
+	isPro: boolean;
+
+	@Column({ default: false })
+  isPremium: boolean;
 
   @Column({ default: true })
   isWelcome: boolean;
@@ -64,5 +71,7 @@ export class UsersEntity extends BaseEntity {
 	@CreateDateColumn() create_at: Date;
 
 	@UpdateDateColumn() updated_at: Date;
+
+	@Column({default: null}) endDatePremium: Date;
 
 }

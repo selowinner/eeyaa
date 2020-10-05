@@ -1,10 +1,12 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
-import { compare } from 'bcrypt';
+import { compare, hash } from 'bcrypt';
 import { ClientDto, CreateClientDto, LoginClientDto } from 'src/clients/dto/CreateClient.dto';
 import { ClientsEntity } from 'src/clients/schema/clients.entity';
-import { ResponseInterface } from 'src/common/interfaces/ResponseInterface';
+import { TypeClient } from 'src/common/enum/ClientEnum';
+import { generateRecovery } from 'src/common/function/helper';
+import { ResponseInterface, ResponseJwt } from 'src/common/interfaces/ResponseInterface';
 import { toClientDto } from 'src/shared/mapper';
 import { Repository } from 'typeorm';
 
@@ -23,18 +25,18 @@ export class ClientsService {
   }
 
 
-  async findClientByLoginClientDto({ email, password }: LoginClientDto): Promise<ResponseInterface| Error> {    
+  async findClientByLoginClientDto({ email, password }: LoginClientDto): Promise<ResponseJwt| Error> {    
     const client = await this.clientsRepo.findOne({ where: { email } });
     
     if (!client) {
-        throw new HttpException('User not found', HttpStatus.UNAUTHORIZED);    
+        throw new HttpException('Client pas trouvé', HttpStatus.UNAUTHORIZED);    
     }
     
     // compare passwords    
     const areEqual = await compare(password, client.password);
     
     if (!areEqual) {
-        throw new HttpException('Invalid credentials', HttpStatus.UNAUTHORIZED);    
+        throw new HttpException('Invalid mot de passe', HttpStatus.UNAUTHORIZED);    
     }
     
     const payload = toClientDto(client);
@@ -43,22 +45,23 @@ export class ClientsService {
     return { access_token: jwt }
   }
 
-  async create(clientDto: CreateClientDto):  Promise<ResponseInterface| Error> {    
-    const { nameEntreprise, password, email, address, registreCommerce, describe, name, birthDate, fonctions } = clientDto;
+  async create(clientDto: CreateClientDto):  Promise<ResponseJwt| Error> {    
+    const { nameEntreprise, password, email, name, type } = clientDto;
     
     // check if the user exists in the db    
     const userInDb = await this.clientsRepo.findOne({ 
       where: [
         { email },
+        { name },
         { nameEntreprise },
-        { registreCommerce },
         ] 
     });
     if (userInDb) {
         throw new HttpException('Ce Client existe déjà', HttpStatus.BAD_REQUEST);    
     }
-    
-    const client: ClientsEntity = await this.clientsRepo.create({ nameEntreprise, password, email, address, registreCommerce, describe, name, birthDate, fonctions });
+    const recovery = generateRecovery();
+    const newPass = await hash(password.trim(), Number(process.env.CRYPTO_DIGEST))
+    const client: ClientsEntity = type === TypeClient.ENTREPRISE ? await this.clientsRepo.create({ nameEntreprise, password: newPass, email, type, recovery}): await this.clientsRepo.create({ name, password: newPass, email, recovery});
     await this.clientsRepo.save(client);
 
     const payload = toClientDto(client);

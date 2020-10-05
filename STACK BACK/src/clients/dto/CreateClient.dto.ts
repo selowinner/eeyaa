@@ -1,27 +1,25 @@
 import { IsEmail, IsNotEmpty } from 'class-validator';
 
 export class CreateClientDto {  
-  @IsNotEmpty()  nameEntreprise: string;
-  @IsNotEmpty()  address: string;
-  @IsNotEmpty() registreCommerce: string;
-  @IsNotEmpty() describe: string;
-  @IsNotEmpty()  name: string;
+  nameEntreprise: string;
+  name: string;
+  type: string;
   @IsNotEmpty() password: string;
+  @IsNotEmpty() confirmPassword: string;
   @IsNotEmpty()  @IsEmail()  email: string;
-
-  @IsNotEmpty()  birthDate: Date;
-  @IsNotEmpty() fonctions: string;
 }
 
 
-export class LoginClientDto {  
-  @IsNotEmpty()  readonly email: string;
+export class LoginClientDto {
+  readonly isClient: boolean;
+  @IsNotEmpty() @IsEmail()  readonly email: string;
   @IsNotEmpty()  readonly password: string;
 }
 
 export class ClientDto {  
   @IsNotEmpty()  id: number;
   @IsNotEmpty()  nameEntreprise: string;
-  @IsNotEmpty()  address: string;
-  @IsNotEmpty()  @IsEmail()  email: string;
+  @IsNotEmpty()  type: string;
+  @IsNotEmpty()  level: number; // declare if client or creatif or admin
+  @IsNotEmpty()  @IsEmail() email: string;
 }
