@@ -1,0 +1,71 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="#" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" style="visibility: hidden">
+        <h1>Dahsbord</h1>
+      </a>
+    </div>
+    <!--sidebar -->
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-menu-item routerLink="/welcome" nzMatchRouter class="align-items-center display-flex">
+        <i nz-icon nzType="dashboard"></i>
+        <span>Accueil</span>
+      </li>
+      <ng-container *ngFor="let item of menu">
+        <li nz-submenu nzOpen [nzTitle]="item.label" [nzIcon]="item.icon">
+          <ul>
+            <ng-container *ngFor="let submenu of item.children">
+              <ng-container *ngIf="submenu.child == undefined; else elseTemplate">
+                <li nz-menu-item nzMatchRouter>
+                  <a [routerLink]="submenu.routerLink">{{submenu.label}}</a>
+                </li>
+              </ng-container>
+              <ng-template #elseTemplate>
+                <li nz-submenu nzTitle="{{submenu.label}}">
+                  <ng-container *ngFor="let submenuItem of submenu.child">
+                    <ul>
+                      <li nz-menu-item nzMatchRouter>
+                        <a [routerLink]="submenuItem.routerLink">{{submenuItem.label}}</a>
+                      </li>
+                    </ul>
+                  </ng-container>
+
+                </li>
+
+              </ng-template>
+            </ng-container>
+          </ul>
+        </li>
+      </ng-container>
+      <li (click)="redicteToLogin()" class="align-items-center display-flex" nz-menu-item>
+        <!--        <i nz-icon nzType="dashboard"></i>-->
+        <i nz-icon nzType="dashboard"></i>
+        <span>Déconexion</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <!--headerTop-->
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+      </div>
+    </nz-header>
+
+    <!--content-->
+    <nz-content>
+      <router-outlet></router-outlet>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

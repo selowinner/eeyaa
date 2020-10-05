@@ -1,0 +1,62 @@
+<!--
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="#" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" style="visibility: hidden">
+        <h1>Dahsbord</h1>
+      </a>
+    </div>
+    &lt;!&ndash;sidebar &ndash;&gt;
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-menu-item routerLink="/welcome" nzMatchRouter class="align-items-center display-flex">
+        <i nz-icon nzType="dashboard"></i>
+        <span>Accueil</span>
+      </li>
+      <ng-container *ngFor="let item of menu">
+        <li nz-submenu nzOpen [nzTitle]="item.label" [nzIcon]="item.icon">
+          <ul>
+            <ng-container *ngFor="let child of item.children">
+              <li nz-menu-item nzMatchRouter>
+                <a [routerLink]="child.routerLink">{{child.label}}</a>
+              </li>
+            </ng-container>
+          </ul>
+        </li>
+      </ng-container>
+      <li nz-menu-item routerLink="{{redicteLogin}}" class="align-items-center display-flex">
+&lt;!&ndash;        <i nz-icon nzType="dashboard"></i>&ndash;&gt;
+        <i nz-icon nzType="logout"></i>
+        <span>Déconexion</span>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    &lt;!&ndash;headerTop&ndash;&gt;
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+      </div>
+    </nz-header>
+
+    &lt;!&ndash;content&ndash;&gt;
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
+-->
+
+<router-outlet></router-outlet>

@@ -1,0 +1,80 @@
+<nz-layout>
+  <nz-carousel
+    [nzEffect]="'fadeIn'"
+    [nzAutoPlaySpeed]="9000"
+    [nzAutoPlay]=true
+    [nzTransitionSpeed]="1"
+    nzDots="true"
+  >
+    <div nz-carousel-content *ngFor="let item of dataSlideImage">
+      <img [src]="item" alt="" class="h-100 widht-100 e-container-top">
+    </div>
+  </nz-carousel>
+  <div class="e-ovelay">
+
+    <div class="e-container-top">
+      <!--top-->
+      <div class="widht-100 padding-top-5">
+        <div class="container-fluid e-container-card">
+          <div class="e-content">
+            <img src="../../../assets/images/logoBgBleu512.jpg" class="e-logo">
+          </div>
+        </div>
+      </div>
+      <!--middle-->
+      <div class="container display-flex justify-content-space-between align-items-center justify-content-center e-row">
+        <!--left-->
+        <div class="e-container-card e-container-btn" (click)="showModal()">
+          <div class="e-content">
+            <span class="e-btn-login">Inscription</span>
+          </div>
+        </div>
+        <!--middle-->
+        <div id="element" class="e-title"></div>
+       <!-- <nz-carousel
+          [nzEffect]="'fadeIn'"
+          [nzAutoPlaySpeed]="9000"
+          [nzAutoPlay]=true
+          nzDots="false"
+          [nzTransitionSpeed]="1"
+        >
+          <div nz-carousel-content *ngFor="let item of dataSlide">
+            <h1 class="e-title">{{item.text}}</h1>
+            <p class="e-description">{{item.description}}</p>
+          </div>
+        </nz-carousel>-->
+
+        <!--right-->
+        <div class="e-container-card e-container-btn">
+          <div class="e-content">
+            <span class="e-btn-register" (click)="goLogin()">Connexion</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+</nz-layout>
+
+<!--Modal pour le choix de type de compte-->
+<nz-modal
+  [(nzVisible)]="isVisibleModal"
+  nzTitle="Créer un compte"
+  [nzFooter]="footer"
+  (nzOnCancel)="isVisibleModal = !isVisibleModal"
+>
+  <ng-template #footer>
+
+  </ng-template>
+  <nz-space nz-row nzDirection="horizontal" class="justify-content-space-between display-flex">
+    <nz-space-item>
+      <button nz-button nzType="primary" nzShape="round" (click)="goRegisterProvider()">Créatif</button>
+    </nz-space-item>
+    <nz-space-item>
+      <button nz-button nzType="primary" nzShape="round" (click)="goRegisterClient()">Client</button>
+    </nz-space-item>
+  </nz-space>
+</nz-modal>

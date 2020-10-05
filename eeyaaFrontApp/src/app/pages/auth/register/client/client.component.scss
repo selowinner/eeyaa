@@ -1,0 +1,187 @@
+$colorBlue: #226674;
+
+nz-layout {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 100%;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  background-image: url("./../../../../../assets/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  //filter: brightness(81%);
+  //background: #ababab2b;
+}
+
+.e-container-card {
+  border-radius: 100%;
+  //background: #4e4e4e26;
+  //background: #f5f5f538;
+  //background: #52525226;
+  background: #ffffff42;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //height: 23%;
+  height: 100%;
+  width: 10%;
+  padding: 2em;
+
+}
+
+.e-content {
+  background: white;
+  border-radius: 100%;
+  padding: 1em;
+  height: 100%;
+  width: 100%;
+
+}
+
+.e-description {
+  line-height: 38px;
+}
+
+
+.e-btn-login {
+}
+
+.e-btn-register {
+}
+
+.e-btn-register, .e-btn-login {
+  color: $colorBlue;
+  font-size: 18px;
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Josefin Sans', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+.e-container-btn {
+  width: initial !important;
+  height: 167px;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  text-align: center;
+
+  .e-content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+.e-title {
+  //font-family: "Franklin Gothic Book";
+  color: white;
+  font-size: 80px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.e-description {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.e-container-form {
+  width: initial;
+
+  form {
+    display: flex;
+    justify-content: space-around !important;
+    flex-direction: column;
+
+    div {
+
+      nz-form-item {
+        width: initial;
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        margin-left: 1rem;
+
+        nz-form-control {
+          nz-input-group {
+            input {
+              padding: 3%;
+              background: transparent;
+              border: 1px solid #fff;
+              color: #fff;
+              font-weight: bold;
+              font-size: 16px;
+
+              //width: 64%;
+              border-radius: 6px;
+
+              &::placeholder {
+                color: white;
+                font-weight: bold;
+                font-size: 16px;
+              }
+
+              &:focus {
+                box-shadow: none;
+
+              }
+            }
+          }
+        }
+      }
+
+      .e-container-radio-group {
+        nz-radio-group {
+          label {
+            color: #fff;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.login-form-margin {
+  width: 80%;
+
+  label, .login-form-forgot {
+    color: white;
+    font-weight: 700;
+  }
+}
+
+.e-icon {
+  background: transparent;
+  border: 1px solid #fff;
+  height: 50px;
+  width: 50px;
+
+  .mdi {
+    color: #FFFFFF;
+    font-size: 26px;
+  }
+}
+
+h3 {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+::ng-deep {
+  .ant-modal-close {
+    &:focus {
+      outline: none !important;
+    }
+  }
+
+  .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: $colorBlue !important;
+    border-color: transparent !important;
+  }
+}
