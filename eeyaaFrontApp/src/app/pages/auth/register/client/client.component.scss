@@ -40,6 +40,9 @@ nz-layout {
 
 }
 
+.e-description {
+  line-height: 38px;
+}
 
 
 .e-btn-login {
@@ -133,7 +136,7 @@ nz-layout {
 
       .e-container-radio-group {
         nz-radio-group {
-          label{
+          label {
             color: #fff;
             font-weight: 700;
           }

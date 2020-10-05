@@ -10,7 +10,7 @@
       <div>
         <span class="e-title">Inscription</span>
         <p class="e-description">
-          Cher client, veuillez s'il vous plait renseigner les champs d'inscription.<br>
+          Cher créatif, veuillez s'il vous plait renseigner les champs d'inscription.<br>
           NB: Les champs obligatoire sont indiqués avec un asterisque(*).
         </p>
       </div>
@@ -33,7 +33,7 @@
               (ngSubmit)="submitForm(validateForm.value)">
           <div class="flex-column display-flex h-100 align-items-center justify-content-space-between">
             <div class="display-flex justify-content-center flex-2 flex-row align-items-flex-end widht-100"
-                 [ngStyle]="currentStep == 2 ? {'align-items': 'center'}:{}">
+                 [ngStyle]="currentStep == 1 ? {'align-items': 'center'}:{}">
               <ng-container *ngIf="currentStep == 1">
                 <nz-form-item>
                   <nz-form-control>
@@ -120,8 +120,8 @@
               </ng-container>
             </div>
             <div
-              class="e-container-radio-group align-items-center display-flex flex-column justify-content-center align-items-center"
-              *ngIf="currentStep == 1"
+              class="e-container-radio-group align-items-center display-flex flex-column justify-content-center"
+              *ngIf="currentStep == 2"
             >
               <span class="e-sexe">Sexe*</span>
               <nz-radio-group nzName="radiogroup" formControlName="radioValue" [(ngModel)]="radioValue">
